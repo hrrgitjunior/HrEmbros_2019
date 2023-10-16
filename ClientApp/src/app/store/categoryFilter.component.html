@@ -1,0 +1,18 @@
+<div>
+  <a class="list-group-item list-group-item-action list-group-item-light p-2"
+     href="javascript:void(0);"
+     [class.active]="this.repo.currentCategory == ''"
+     (click)="setCategory('')">
+    Представяне
+  </a>
+
+  <a *ngFor="let category of categories"
+     href="javascript:void(0);"
+     class="list-group-item list-group-item-action list-group-item-light p-2"
+     [class.active]="this.repo.currentCategory == category.cId"
+     (click)="setCategory(category.cId)">
+
+    {{category.name}}
+  </a>
+</div>
+
