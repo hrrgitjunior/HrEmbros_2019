@@ -15,3 +15,6 @@ Server
 npm start => proxy server at port 4200
 dotnet watch run at port 7000/7001
 uncheck ssl
+
+After run localhost at port 7000 open debug source console brawser/open dist/lib/bootstrap.css, copy and paste on 
+ClientApp/src/styles.css
