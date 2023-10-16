@@ -10,6 +10,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
+using HrEmbros.Models;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
 
 
 namespace ServerApp
@@ -26,6 +29,14 @@ namespace ServerApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            string conn = Configuration["ConnectionStrings:DefaultConnection"];
+            services.AddDbContext<DataContext>(options =>
+                options.UseSqlServer(conn));
+/*            services.Configure<KestrelServerOptions>(options =>
+            {
+                options.AllowSynchronousIO = true;
+            });*/
+            services.AddMvc();
             services.AddControllersWithViews();
         }
 

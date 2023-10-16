@@ -18,3 +18,8 @@ uncheck ssl
 
 After run localhost at port 7000 open debug source console brawser/open dist/lib/bootstrap.css, copy and paste on 
 ClientApp/src/styles.css
+
+appsettings.json
+  "ConnectionStrings": {
+    "DefaultConnection": "Server = HRR-PC;Database = HRR_DB;Trusted_Connection=True"
+  }

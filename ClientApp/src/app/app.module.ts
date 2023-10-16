@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ModelModule } from "./models/module";
+//import { DataTablesModule } from 'angular-datatables';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,8 +16,8 @@ import { TextDesignsComponent } from "./structure/textDesigns";
 import { FolcklorDesignsComponent } from "./structure/folcklorDesigns";
 import { PhotoDesignsComponent } from "./structure/photoDesigns";
 import { AdobeDesignsComponent } from "./structure/adobeDesigns";
-/*import { ProductListComponent } from "./structure/productList";
-import { HistogramPlotComponent } from "./structure/histogramPlot";*/
+import { ProductListComponent } from "./structure/productList";
+/*import { HistogramPlotComponent } from "./structure/histogramPlot";*/
 
 @NgModule({
   declarations: [
@@ -29,15 +30,16 @@ import { HistogramPlotComponent } from "./structure/histogramPlot";*/
     TextDesignsComponent,
     FolcklorDesignsComponent,
     PhotoDesignsComponent,
-    AdobeDesignsComponent
-/*    ProductListComponent,
-    HistogramPlotComponent*/
+    AdobeDesignsComponent,
+    ProductListComponent
+/*    HistogramPlotComponent*/
   ],
   imports: [
     BrowserModule,
     ModelModule,
     AppRoutingModule,
     HttpClientModule
+    //DataTablesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
