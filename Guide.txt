@@ -1,0 +1,17 @@
+For Angular follow the book
+instal dotnet SDK
+instal nodejs
+instal angular
+instal VS
+instal sql server(turn of firewall) 
+instal sql studio management
+from vs connect with ms azure
+
+create new project
+two parts:
+Client
+Server
+
+npm start => proxy server at port 4200
+dotnet watch run at port 7000/7001
+uncheck ssl
