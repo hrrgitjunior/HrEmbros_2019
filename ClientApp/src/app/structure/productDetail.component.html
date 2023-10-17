@@ -1,0 +1,69 @@
+﻿<div class="container" style="font-family:verdana">
+    <div class="panel panel-info">
+            <div class="panel-heading">
+                <h4>Преглед на файл </h4> 
+            </div>
+
+        <div class="panel-body">
+
+            <div *ngIf="!isLoaded" class="loader" style="margin: auto"></div>
+
+            <div *ngIf="isLoaded">
+                <div class="row">
+                    <div class="col-md-8">
+                        <img src={{product?.urlBigImage}} />
+                    </div>
+                    <div class="col-md-4">
+                        <table class="table">
+                            <tr>
+                                <th style="border: none">
+                                    Категория:
+                                </th>
+                                <td style="border: none">
+                                    {{product?.category}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    Name:
+                                </th>
+                                <td>
+                                    {{product?.name}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    Размер:
+                                </th>
+                                <td>
+                                    {{product?.size}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    Цветове:
+                                </th>
+                                <td>
+                                    {{product?.colorCount}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    Бодове:
+                                </th>
+                                <td>
+                                    {{product?.stitchCount}}
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div  style="margin-top: 10px">
+                    <div *ngIf="product?.enableDownload" class="float-left"><button type="button" class="btn btn-success" (click)="download(product?.embFile)">Сваляне</button></div>
+                    <div class="float-right"><a class="float-right" href="javascript:void(0)" (click)="goBack()"> Готови проекти </a></div>
+                </div>
+            </div>
+         </div>
+     </div>
+ </div>
+

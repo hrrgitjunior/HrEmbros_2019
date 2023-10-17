@@ -1,0 +1,21 @@
+﻿<div>
+    <div class="container, text-center" style="margin-bottom: 50px">
+        <div style="margin: auto">
+            <div style="margin-bottom:10px">
+                <span class="badge badge-light">{{product.name}}</span>
+            </div>
+            <img [alt]="getAltImage(product.altImage)"
+                 src={{product.urlSmallImage}} />
+            <div style="margin-top: 10px">
+                <a class="btn btn-outline-primary btn-sm" [routerLink]="['/detail', product.pId]">
+                    {{product.enableDownload === true ? "Преглед/Сваляне" : "Преглед"}}
+                </a>
+
+                <a class="btn btn-outline-primary btn-sm" [routerLink]="['/embroidery', product.pId]">
+                    {{product.enableDownload === true ? "Симулатор на бодове" : "Преглед"}}
+                </a>
+
+            </div>
+        </div>
+    </div>
+</div>

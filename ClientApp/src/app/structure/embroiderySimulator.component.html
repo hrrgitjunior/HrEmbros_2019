@@ -1,0 +1,37 @@
+﻿<div class="container" style="font-family:verdana">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h4>Симулатор на бодове</h4>
+        </div>
+        <div *ngIf="!isLoadedStitches" class="loader" style="margin: auto"></div>
+        <div *ngIf="isLoadedStitches" class="row">
+            <div class="col-11">
+                <div style="margin-top: 10px">
+                    <div class="float-left"><button type="button" class="btn btn-success" (click)="run_stitches()">Start</button></div>
+                    <div class="float-right"><button type="button" class="btn btn-danger" (click)="stop_stitches()">Stop</button></div>
+                </div>
+            </div>
+            <div class="col-1" style="margin-top: 10px">
+                <span>Needles</span>
+            </div>
+        </div>
+        <div *ngIf="isLoadedStitches" class="row" style="height:600px;margin-top: 10px">
+            <div class="col-11">
+                <emb-canvas (drawMethod)="drawEmbStitches($event)"></emb-canvas>
+            </div>
+            <div class="col-1" style="height: 300px; background-color:beige; overflow-y:auto;padding: 0px">
+                <ul style="list-style: none; margin: 0; padding: 0px;width: 100%">
+                    <li *ngFor="let item of needles_15; let i = index" [style.background-color]='item'  
+                                style="width: 30px; height:30px; border-radius: 5px;margin-bottom:2px;
+                                text-align: center;border:solid 1px black;
+                                cursor: pointer;"
+                        (click)="open(i)">
+                        <span>{{i+1}}</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+

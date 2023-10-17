@@ -1,0 +1,18 @@
+﻿<div class="container" style="font-family:verdana; margin-top:30px">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h4>Готови проекти във формат Tajima/dst</h4>
+        </div>
+
+        <div class="panel-body">
+            <div *ngIf="!isLoaded" class="loader" style="margin: auto"></div>
+
+            <div *ngIf="isLoaded" class="row" style="margin-top: 10px">
+                <div class="col-sm-6" *ngFor="let p of products">
+                    <product-cell [product]=p></product-cell>
+                </div>
+            </div>
+        </div>
+
+     </div>
+</div>

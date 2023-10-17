@@ -1,0 +1,8 @@
+﻿<div>
+    <button *ngFor = "let page of pages"
+            class = "btn btn-outline-primary mx-1"
+            [class.active] ="repo.currentPage == page"
+            (click) = "setPage(page)">
+        {{page}}
+    </button>
+</div>

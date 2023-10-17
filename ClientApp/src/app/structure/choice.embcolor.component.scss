@@ -1,0 +1,21 @@
+﻿::ng-deep .modal-content {
+    /* change border */
+    /*border: none; */
+    /* change background */
+    background-color: #ffffff !important;
+}
+
+
+::ng-deep .modal-dialog {
+    max-width: 350px;
+  }
+
+::ng-deep .modal-open .modal {
+    display: flex !important;
+    align-items: center !important;
+
+    .modal-dialog {
+        flex-grow: 1;
+    }
+}
+
