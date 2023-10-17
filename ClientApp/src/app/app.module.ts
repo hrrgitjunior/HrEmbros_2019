@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ModelModule } from "./models/module";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 //import { DataTablesModule } from 'angular-datatables';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -17,7 +18,15 @@ import { FolcklorDesignsComponent } from "./structure/folcklorDesigns";
 import { PhotoDesignsComponent } from "./structure/photoDesigns";
 import { AdobeDesignsComponent } from "./structure/adobeDesigns";
 import { ProductListComponent } from "./structure/productList";
+import { ProductTableComponent } from "./structure/productTable";
+import { ProductCellComponent } from "./structure/productTableCell";
+//import { ProductDetailComponent } from "./structure/productDetail";
+import { EmbroiderySimulatorComponent } from "./structure/embroiderySimulator";
+import { EmbCanvasComponent } from "./structure/embCanvas";
+import { ChoiceEmbColorModalComponent } from "./structure/choice.embcolor.modal";
 import { HistogramPlotComponent } from "./structure/histogramPlot";
+import { DesignsCategoryComponent } from "./structure/designsCategory";
+import { DesignsPaginationComponent } from "./structure/designsPagination";
 
 @NgModule({
   declarations: [
@@ -26,19 +35,29 @@ import { HistogramPlotComponent } from "./structure/histogramPlot";
     StoreLayoutComponent,
     CategoryFilterComponent,
     CategoryProductsComponent,
+    DesignsCategoryComponent,
+    DesignsPaginationComponent,
     IntroductionComponent,
     TextDesignsComponent,
     FolcklorDesignsComponent,
     PhotoDesignsComponent,
+    ProductTableComponent,
+    ProductCellComponent,
+    EmbroiderySimulatorComponent,
+    EmbCanvasComponent,
+    ChoiceEmbColorModalComponent,
     AdobeDesignsComponent,
     ProductListComponent,
     HistogramPlotComponent
   ],
+  entryComponents: [ChoiceEmbColorModalComponent],
   imports: [
     BrowserModule,
     ModelModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
+    //NgbModule.forRoot()
     //DataTablesModule
   ],
   providers: [],

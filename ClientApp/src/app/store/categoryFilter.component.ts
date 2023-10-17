@@ -22,7 +22,6 @@ export class CategoryFilterComponent {
     }
 
     setCategory(category: string) {
-      console.log("SET CATEGORY ===", category);
       this.currentCategory = category;
       this.navigServ.currentCategory = category;
     }

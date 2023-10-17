@@ -4,6 +4,8 @@ import { MainLayoutComponent } from "./structure/mainLayout";
 import { StoreLayoutComponent } from "./structure/storeLayout";
 import { IntroductionComponent } from "./structure/introduction";
 import { CategoryProductsComponent } from "./structure/categoryProducts";
+import { DesignsCategoryComponent } from "./structure/designsCategory";
+import { EmbroiderySimulatorComponent } from "./structure/embroiderySimulator";
 
 
 const routes: Routes = [
@@ -16,12 +18,10 @@ const routes: Routes = [
         children: [
           { path: '', redirectTo: 'introduction', pathMatch: 'full' },
           { path: "store/:category", component: CategoryProductsComponent },
-          { path: "introduction", component: IntroductionComponent }
-          /* { path: "designs/:category", component: DesignsCategoryComponent },
-           { path: "designs/:category/:page", component: DesignsCategoryComponent },
-           { path: "introduction", component: IntroductionComponent },
-           { path: "detail/:id", component: ProductDetailComponent },
-           { path: "embroidery/:id", component: EmbroiderySimulatorComponent }*/
+          { path: "introduction", component: IntroductionComponent },
+          { path: "designs/:category", component: DesignsCategoryComponent },
+/*           { path: "detail/:id", component: ProductDetailComponent },*/
+           { path: "embroidery/:id", component: EmbroiderySimulatorComponent }
         ]
       }
     ]

@@ -37,9 +37,9 @@ type point = {
 }
 
 type TCCEtitle = {
-        absSP: point;
-        sz_x: number;
-        sz_y: number;
+        AbsSP: point;
+        Sz_x: number;
+        Sz_y: number;
     }
 
 @Injectable()
@@ -150,10 +150,10 @@ export class Repository {
         this.isLoadedStitches = false;
       //this.sendRequest(RequestMethod.Get, "api/embroidery/fetchstitches?id=" + id)
       this.http.get<any>("api/embroidery/fetchstitches?id=" + id)
-            .subscribe(response => {
-                this.embStitches = response[0];
-                this.embTitle = response[1];
-                this.isLoadedStitches = true;
+        .subscribe(response => {
+              this.embStitches = response[0];
+              this.embTitle = response[1];
+              this.isLoadedStitches = true;
             });
     }
 
@@ -169,10 +169,8 @@ export class Repository {
 
     fetch_histogram_plot_options() {
       //this.sendRequest(RequestMethod.Get, "api/histgramchartplot/histogramplot")
-      console.log("FETCH HIST PLOT ===");
       this.http.get<any>("api/histgramchartplot/histogramplot")
             .subscribe(response => {
-                console.log("HISTOGRAM PLOT OPTIONS ===", response);
                 this.histogramplotOptions = response;
             });
 
