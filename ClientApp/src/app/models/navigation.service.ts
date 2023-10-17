@@ -26,10 +26,11 @@ export class NavigationService {
     }
 
   private handleNavigationChange(route) {
-        console.log("HANDLE NAVIGATION ROUTE ===", route);
+/*        console.log("HANDLE NAVIGATION ROUTE ===", route);
         console.log("HANDLE NAVIGATION CATEGORY ===", route.snapshot.paramMap.get('category'));
         console.log("HANDLE NAVIGATION PAGE ===", route.snapshot.paramMap.get('page'));
-        console.log("HANDLE NAVIGATION URL PATH ===", route.url.value[0].path);
+        console.log("HANDLE NAVIGATION URL PATH ===", route.url.value[0].path);*/
+
         let routeCategory: string = route.snapshot.paramMap.get('category')
         let routePage: number = route.snapshot.paramMap.get('page');
 

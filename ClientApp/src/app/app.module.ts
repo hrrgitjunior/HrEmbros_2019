@@ -17,7 +17,7 @@ import { FolcklorDesignsComponent } from "./structure/folcklorDesigns";
 import { PhotoDesignsComponent } from "./structure/photoDesigns";
 import { AdobeDesignsComponent } from "./structure/adobeDesigns";
 import { ProductListComponent } from "./structure/productList";
-/*import { HistogramPlotComponent } from "./structure/histogramPlot";*/
+import { HistogramPlotComponent } from "./structure/histogramPlot";
 
 @NgModule({
   declarations: [
@@ -31,8 +31,8 @@ import { ProductListComponent } from "./structure/productList";
     FolcklorDesignsComponent,
     PhotoDesignsComponent,
     AdobeDesignsComponent,
-    ProductListComponent
-/*    HistogramPlotComponent*/
+    ProductListComponent,
+    HistogramPlotComponent
   ],
   imports: [
     BrowserModule,

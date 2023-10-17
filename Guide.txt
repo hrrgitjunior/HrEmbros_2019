@@ -23,3 +23,18 @@ appsettings.json
   "ConnectionStrings": {
     "DefaultConnection": "Server = HRR-PC;Database = HRR_DB;Trusted_Connection=True"
   }
+
+tscopnfig.json
+"skipLibCheck": true => skip checking for type in datatable.type.ts
+
+when we have: async Task<IActionResult>
+  public async Task<IActionResult> Datatableproducts([FromForm] DataTableAjaxPostModel model)
+        {
+
+                    DataTableAjaxPostModel dtModel;
+
+                    using (var reader = new StreamReader(Request.Body))
+                                {
+                                    var body = await reader.ReadToEndAsync(); => using of assync methods
+                                    dtModel = JsonConvert.DeserializeObject<DataTableAjaxPostModel>(body);
+                                }

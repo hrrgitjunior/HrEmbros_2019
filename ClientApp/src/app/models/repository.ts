@@ -169,6 +169,7 @@ export class Repository {
 
     fetch_histogram_plot_options() {
       //this.sendRequest(RequestMethod.Get, "api/histgramchartplot/histogramplot")
+      console.log("FETCH HIST PLOT ===");
       this.http.get<any>("api/histgramchartplot/histogramplot")
             .subscribe(response => {
                 console.log("HISTOGRAM PLOT OPTIONS ===", response);
