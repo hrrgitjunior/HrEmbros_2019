@@ -5,7 +5,7 @@ using System.Web;
 using System.IO;
 using System.Runtime.InteropServices;
 
-namespace HrEmbros.Controllers
+namespace ServerApp.Controllers
 {
     public struct DstStruct
     {

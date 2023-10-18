@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using HrEmbros.Models;
+using ServerApp.Models;
 using Microsoft.EntityFrameworkCore;
 using System.IO;
 using System.Net.Http;
@@ -12,7 +12,7 @@ using Newtonsoft.Json;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 
 
-namespace HrEmbros.Controllers
+namespace ServerApp.Controllers
 {
     public class DataTableAjaxPostModel
     {

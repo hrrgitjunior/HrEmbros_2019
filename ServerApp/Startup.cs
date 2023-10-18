@@ -10,7 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
-using HrEmbros.Models;
+using ServerApp.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 
@@ -38,6 +38,8 @@ namespace ServerApp
             });*/
             services.AddMvc();
             services.AddControllersWithViews();
+            services.Add(new ServiceDescriptor(typeof(ILog), new MyConsoleLogger()));
+            services.Add(new ServiceDescriptor(typeof(IMyLogger), new MyLogger()));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

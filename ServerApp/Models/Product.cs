@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 
-namespace HrEmbros.Models
+namespace ServerApp.Models
 {
  /*   public class Product
     {

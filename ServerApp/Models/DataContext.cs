@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace HrEmbros.Models
+namespace ServerApp.Models
 {
     public class DataContext : DbContext
     {

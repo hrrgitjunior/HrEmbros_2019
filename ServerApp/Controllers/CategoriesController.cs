@@ -4,10 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using HrEmbros.Models;
+using ServerApp.Models;
 //using HrEmbros.DependencyInjection;
 
-namespace HrEmbros.Controllers
+namespace ServerApp.Controllers
 {
 
 

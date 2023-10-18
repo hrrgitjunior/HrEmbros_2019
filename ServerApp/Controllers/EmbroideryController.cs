@@ -4,11 +4,11 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
-using HrEmbros.Models;
+using ServerApp.Models;
 using System.IO;
 
 
-namespace HrEmbros.Controllers
+namespace ServerApp.Controllers
 {
     [Route("api/embroidery")]
     [ApiController]

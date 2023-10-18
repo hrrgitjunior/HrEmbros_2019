@@ -11,15 +11,19 @@ namespace ServerApp.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        ILog _log;
+        IMyLogger _mylogger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILog log, IMyLogger mylogger)
         {
-            _logger = logger;
+            _log = log;
+            _mylogger = mylogger;
         }
 
         public IActionResult Index()
         {
+            _log.info("Executing /home/index");
+            _mylogger.WriteLog(HttpContext, "Homecontroller-index");
             return View();
         }
 
