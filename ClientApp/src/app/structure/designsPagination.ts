@@ -1,4 +1,4 @@
-﻿import { Component, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { NgModule } from "@angular/core";
 import { Repository } from "../models/repository";
 import { NavigationService } from "../models/navigation.service";
@@ -18,7 +18,8 @@ export class DesignsPaginationComponent {
         private navigServ: NavigationService) {
     }
 
-    setPage(page: number) {
+  setPage(page: number) {
+        console.log("SET PAGE ===");
         this.navigServ.currentPage = page;
     }
 }

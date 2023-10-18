@@ -3,8 +3,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { MainLayoutComponent } from "./structure/mainLayout";
 import { StoreLayoutComponent } from "./structure/storeLayout";
 import { IntroductionComponent } from "./structure/introduction";
+import { ContactsComponent } from "./structure/contacts";
 import { CategoryProductsComponent } from "./structure/categoryProducts";
 import { DesignsCategoryComponent } from "./structure/designsCategory";
+import { ProductDetailComponent } from "./structure/productDetail";
 import { EmbroiderySimulatorComponent } from "./structure/embroiderySimulator";
 
 
@@ -20,10 +22,12 @@ const routes: Routes = [
           { path: "store/:category", component: CategoryProductsComponent },
           { path: "introduction", component: IntroductionComponent },
           { path: "designs/:category", component: DesignsCategoryComponent },
-/*           { path: "detail/:id", component: ProductDetailComponent },*/
-           { path: "embroidery/:id", component: EmbroiderySimulatorComponent }
+          { path: "designs/:category/:page", component: DesignsCategoryComponent },
+          { path: "detail/:id", component: ProductDetailComponent },
+          { path: "embroidery/:id", component: EmbroiderySimulatorComponent }
         ]
-      }
+      },
+      { path: "contacts", component: ContactsComponent }
     ]
   }
 

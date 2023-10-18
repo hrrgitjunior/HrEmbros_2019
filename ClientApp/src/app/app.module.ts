@@ -13,6 +13,7 @@ import { CategoryProductsComponent } from "./structure/categoryProducts";
 import { HttpClientModule } from '@angular/common/http';
 
 import { IntroductionComponent } from "./structure/introduction";
+import { ContactsComponent } from "./structure/contacts";
 import { TextDesignsComponent } from "./structure/textDesigns";
 import { FolcklorDesignsComponent } from "./structure/folcklorDesigns";
 import { PhotoDesignsComponent } from "./structure/photoDesigns";
@@ -20,7 +21,7 @@ import { AdobeDesignsComponent } from "./structure/adobeDesigns";
 import { ProductListComponent } from "./structure/productList";
 import { ProductTableComponent } from "./structure/productTable";
 import { ProductCellComponent } from "./structure/productTableCell";
-//import { ProductDetailComponent } from "./structure/productDetail";
+import { ProductDetailComponent } from "./structure/productDetail";
 import { EmbroiderySimulatorComponent } from "./structure/embroiderySimulator";
 import { EmbCanvasComponent } from "./structure/embCanvas";
 import { ChoiceEmbColorModalComponent } from "./structure/choice.embcolor.modal";
@@ -38,11 +39,13 @@ import { DesignsPaginationComponent } from "./structure/designsPagination";
     DesignsCategoryComponent,
     DesignsPaginationComponent,
     IntroductionComponent,
+    ContactsComponent,
     TextDesignsComponent,
     FolcklorDesignsComponent,
     PhotoDesignsComponent,
     ProductTableComponent,
     ProductCellComponent,
+    ProductDetailComponent,
     EmbroiderySimulatorComponent,
     EmbCanvasComponent,
     ChoiceEmbColorModalComponent,
