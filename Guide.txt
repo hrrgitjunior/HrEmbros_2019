@@ -38,3 +38,10 @@ when we have: async Task<IActionResult>
                                     var body = await reader.ReadToEndAsync(); => using of assync methods
                                     dtModel = JsonConvert.DeserializeObject<DataTableAjaxPostModel>(body);
                                 }
+
+
+
+MS AZURE SQL SERVER AUTHENTICATION
+hr67embros
+HrEmbros2209!
+HOME->HREMBROS SQLDB -> LEFT MENU -> QUERY EDITOR(preview)
