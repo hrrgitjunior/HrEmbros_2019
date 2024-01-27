@@ -13,7 +13,7 @@ import { Router, ActivatedRoute } from "@angular/router";
 
 export class DesignsPaginationComponent {
     @Input() pages:  number[] = [];
-    constructor(private repo: Repository,
+    constructor(public repo: Repository,
         private router: Router,
         private navigServ: NavigationService) {
     }

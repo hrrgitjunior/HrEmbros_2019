@@ -22,9 +22,9 @@ namespace ServerApp.Controllers
             { new Category {CId = "Lettering", Name = "Текст"},
               new Category {CId = "Cross", Name = "Фолк/Кръстат бод" },
               new Category {CId = "Photo", Name = "Фото бод" },
-              new Category {CId = "Adobe", Name = "Adobe Ai" },
-              new Category {CId = "Product_list", Name = "Списък с продукти" },
-              new Category {CId = "Histogram_plot", Name = "Статистика" }};
+              new Category {CId = "Adobe", Name = "Adobe Ai" }
+        /*      new Category {CId = "Product_list", Name = "Списък с продукти" },
+              new Category {CId = "Histogram_plot", Name = "Статистика" }*/};
 
 
 //        public CategoriesController(IShoppingCartService shoppingCartService)

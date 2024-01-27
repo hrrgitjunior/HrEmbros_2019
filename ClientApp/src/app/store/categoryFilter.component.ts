@@ -10,7 +10,7 @@ import { RouterModule, Routes, Router } from '@angular/router';
 })
 export class CategoryFilterComponent {
   public currentCategory: string;
- constructor(private repo: Repository,
+ constructor(public repo: Repository,
         private router: Router,
         private navigServ: NavigationService) {
    this.repo.getCategories();

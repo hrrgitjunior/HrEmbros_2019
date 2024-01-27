@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.FileProviders;
+using System.IO;
 using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using ServerApp.Models;
@@ -19,9 +21,17 @@ namespace ServerApp
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration, IWebHostEnvironment env)
         {
-            Configuration = configuration;
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(env.ContentRootPath)
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
+                .AddEnvironmentVariables()
+                .AddCommandLine(System.Environment.GetCommandLineArgs()
+                    .Skip(1).ToArray());
+            Configuration = builder.Build();
+            
         }
 
         public IConfiguration Configuration { get; }
@@ -58,6 +68,14 @@ namespace ServerApp
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                RequestPath = "",
+                FileProvider = new PhysicalFileProvider(
+                  Path.Combine(Directory.GetCurrentDirectory(),
+                  "./wwwroot"))
+            });
+
             app.UseRouting();
 
             app.UseAuthorization();
@@ -67,16 +85,20 @@ namespace ServerApp
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+                //very important when reloading the page different from home
+                endpoints.MapFallbackToController("Index", "Home");
             });
 
-            app.UseSpa(spa =>
-            {
-                // see https://go.microsoft.com/fwlink/?linkid=864501
+            /*    app.UseSpa(spa =>
+                {
+                    // see https://go.microsoft.com/fwlink/?linkid=864501
 
-                //spa.Options.SourcePath = "../ClientApp";
-                spa.UseProxyToSpaDevelopmentServer("http://127.0.0.1:4200");
-                //spa.UseAngularCliServer("start");
-            });
+                    //spa.Options.SourcePath = "../ClientApp";
+                    spa.UseProxyToSpaDevelopmentServer("http://127.0.0.1:4200");
+                    //spa.UseAngularCliServer("start");
+                });*/
+          
 
 
         }

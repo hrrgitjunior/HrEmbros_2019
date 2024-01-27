@@ -19,10 +19,16 @@ uncheck ssl
 After run localhost at port 7000 open debug source console brawser/open dist/lib/bootstrap.css, copy and paste on 
 ClientApp/src/styles.css
 
+//=== for localhost sql server ===
 appsettings.json
   "ConnectionStrings": {
     "DefaultConnection": "Server = HRR-PC;Database = HRR_DB;Trusted_Connection=True"
   }
+
+//=== for ms azure sql server ===
+"ConnectionStrings": {
+   "DefaultConnection": "Server=hrembros.database.windows.net;Initial Catalog=hrembros;User ID=hr67embros;Password=HrEmbros2209!;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"
+}
 
 tscopnfig.json
 "skipLibCheck": true => skip checking for type in datatable.type.ts
@@ -45,3 +51,65 @@ MS AZURE SQL SERVER AUTHENTICATION
 hr67embros
 HrEmbros2209!
 HOME->HREMBROS SQLDB -> LEFT MENU -> QUERY EDITOR(preview)
+
+
+//=== for produiction ===-
+@section scripts {
+    <script src="runtime-es2015.js" type="module"></script>
+    <script src="polyfills-es2015.js" type="module"></script>
+    <script src="main-es2015.js" type="module"></script>
+    <!--  <script src="vendor.js" type="module"></script> -->
+    <!--  <script src="styles.js" type="module"></script> -->
+    <script src="runtime-es5.js" nomodule></script>
+    <script src="polyfills-es5.js" nomodule></script>
+    <script src="main-es5.js" nomodule></script>
+}
+
+
+//=== for localhost ===
+@section scripts {
+    <script src="runtime.js"></script>
+    <script src="polyfills.js"></script>
+    <script src="vendor.js"></script>
+    <script src="styles.js"></script>
+    <script src="main.js"></script>
+}
+
+Команда която създава файлове за продуктион
+ng build --prod --output-path ../ServerApp/wwwroot --output-hashing none
+Трябва да се добави папка Lib in wwwroot
+
+ServerApp->property->debug->aspnetcore_environment = Production/Development
+ServerApp/Properties/launchSettings.json => "ASPNETCORE_ENVIRONMENT": "Production"/"development"
+
+HOW SETTINGS PRODUCTION AND DEVELOPMENT MODE
+startup.cs
+
+                app.UseSpa(spa =>
+                {
+                    // see https://go.microsoft.com/fwlink/?linkid=864501
+
+                    //spa.Options.SourcePath = "../ClientApp";
+                    spa.UseProxyToSpaDevelopmentServer("http://127.0.0.1:4200");=> from npm start
+                    //spa.UseAngularCliServer("start");
+                });=> in development
+
+    app.UseStaticFiles(new StaticFileOptions
+            {
+                RequestPath = "",
+                FileProvider = new PhysicalFileProvider(
+                  Path.Combine(Directory.GetCurrentDirectory(),
+                  "./wwwroot"))
+            });=> in production
+
+      app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
+		 //very important when reloading the page different from home
+                endpoints.MapFallbackToController("Index", "Home");
+            });
+
+          
+
