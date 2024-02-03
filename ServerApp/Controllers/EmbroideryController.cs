@@ -15,9 +15,13 @@ namespace ServerApp.Controllers
     public class EmbroideryController : Controller
     {
         private DataContext context;
-        public EmbroideryController (DataContext ctx)
+        IMyLogger _mylogger;
+       
+
+        public EmbroideryController (DataContext ctx, IMyLogger mylogger)
         {
             context = ctx;
+            _mylogger = mylogger;
         }
         [HttpGet, DisableRequestSizeLimit]
         [Route("fetchstitches")]
@@ -33,8 +37,9 @@ namespace ServerApp.Controllers
                                 EmbFile = p.EmbFile
                             }).ToList().First();
 
-                HrEmbrosLogger hrembros_log = new HrEmbrosLogger();
-                hrembros_log.WriteLog(HttpContext, "Embroidery file = " + FilteredProduct.EmbFile);
+                /*HrEmbrosLogger hrembros_log = new HrEmbrosLogger();
+                hrembros_log.WriteLog(HttpContext, "Embroidery file = " + FilteredProduct.EmbFile);*/
+                _mylogger.WriteLog(HttpContext, "Embroidery file = " + FilteredProduct.EmbFile);
 
                 string dstPath =
                 Path.Combine(Directory.GetCurrentDirectory() + "\\wwwroot\\Files\\", FilteredProduct.EmbFile);
