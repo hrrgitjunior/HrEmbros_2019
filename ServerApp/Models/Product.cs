@@ -29,6 +29,8 @@ namespace ServerApp.Models
         public string EmbFile { get; set; }
         public bool EnableDownload { get; set; }
         public int Prior { get; set; }
+        public string Image3D { get; set; }
+        public bool IsImage3D { get; set; }
     }
 
     public class Category

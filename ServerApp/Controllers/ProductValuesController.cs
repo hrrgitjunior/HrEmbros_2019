@@ -98,26 +98,35 @@ namespace ServerApp.Controllers
         public IEnumerable<Product> GetProducts(string category)
         {
 
-            /*List<Product> data = ProductData.productList
-                                    .Where(p => p.Category == category)
-                                    .Select(p => new Product
-                                    {
-                                        PId = p.PId,
-                                        Name = p.Name,
-                                        UrlImage = p.UrlImage
-                                    }).ToList();*/
+            /*      List<Product> data = context.Designs
+                                      .Where(p => p.Category == category)
+                                      .OrderBy(p => p.Prior)
+                                      .Select(p => new Product
+                                      {
+                                          PId = p.PId,
+                                          Name = p.Name,
+                                          UrlSmallImage = p.UrlSmallImage,
+                                          AltImage = p.AltImage,
+                                          EnableDownload = p.EnableDownload
+                                      }).ToList(); */
 
-                List<Product> data = context.Designs
-                                    .Where(p => p.Category == category)
-                                    .OrderBy(p => p.Prior)
-                                    .Select(p => new Product
-                                    {
-                                        PId = p.PId,
-                                        Name = p.Name,
-                                        UrlSmallImage = p.UrlSmallImage,
-                                        AltImage = p.AltImage,
-                                        EnableDownload = p.EnableDownload
-                                    }).ToList();
+
+            List<Product> data = (from des in context.Designs
+                                  join dp in context.DesignPaths
+                                  on des.PId equals dp.DesId
+                                  where des.Category == category
+                                  orderby des.Prior
+                                  select new Product
+                                  {
+                                      PId = des.PId,
+                                      Name = des.Name,
+                                      UrlSmallImage = des.UrlSmallImage,
+                                      AltImage = des.AltImage,
+                                      EnableDownload = des.EnableDownload,
+                                      IsImage3D = dp.IsImage3D,
+                                      Image3D = dp.Image3D
+                                  }).ToList();
+
 
             /*Thread.Sleep(1000);*/
 
@@ -183,21 +192,44 @@ namespace ServerApp.Controllers
                                           EmbFile = p.EmbFile
                                       }).ToList().First();*/
 
-              var FilteredProduct = context.Designs
-                                               .Where(p => p.PId == id)
-                                               .Select(p => new Product
-                                               {
-                                                   PId = p.PId,
-                                                   Name = p.Name,
-                                                   UrlBigImage = p.UrlBigImage,
-                                                   AltImage = p.AltImage,
-                                                   Category = p.Category,
-                                                   Size = p.Size,
-                                                   ColorCount = p.ColorCount,
-                                                   StitchCount = p.StitchCount,
-                                                   EmbFile = p.EmbFile,
-                                                   EnableDownload = p.EnableDownload
-                                               }).ToList().First();
+          /*       var FilteredProduct = context.Designs
+                                                   .Where(p => p.PId == id)
+                                                   .Select(p => new Product
+                                                   {
+                                                       PId = p.PId,
+                                                       Name = p.Name,
+                                                       UrlBigImage = p.UrlBigImage,
+                                                       AltImage = p.AltImage,
+                                                       Category = p.Category,
+                                                       Size = p.Size,
+                                                       ColorCount = p.ColorCount,
+                                                       StitchCount = p.StitchCount,
+                                                       EmbFile = p.EmbFile,
+                                                       EnableDownload = p.EnableDownload
+                                                   }).ToList().First();*/
+
+
+            var FilteredProduct = (from des in context.Designs
+                                   join dp in context.DesignPaths
+                                   on des.PId equals dp.DesId
+                                   where des.PId == 4
+                                   select new Product
+                                   {
+                                       PId = des.PId,
+                                       Name = des.Name,
+                                       UrlBigImage = des.UrlBigImage,
+                                       AltImage = des.AltImage,
+                                       Category = des.Category,
+                                       Size = des.Size,
+                                       ColorCount = des.ColorCount,
+                                       StitchCount = des.StitchCount,
+                                       EmbFile = des.EmbFile,
+                                       EnableDownload = des.EnableDownload,
+                                       Image3D = dp.Image3D
+                                   }
+                                   ).ToList().First();
+                
+
 
             /*Thread.Sleep(300);*/
 

@@ -12,5 +12,14 @@ namespace ServerApp.Models
        public DataContext(DbContextOptions<DataContext> opts)
             : base(opts) { }
             public DbSet<Product> Designs { get; set; }
-        }
+            public DbSet<DesignPaths> DesignPaths { get; set; }
+
+    }
+
+ /*   public class DataContext2 : DbContext
+    {
+        public DataContext2(DbContextOptions<DataContext> opts)
+             : base(opts) { }
+        public DbSet<DesignPaths> DesignPaths { get; set; }
+    }*/
 }

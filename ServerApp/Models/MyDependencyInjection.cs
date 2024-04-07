@@ -80,7 +80,8 @@ namespace ServerApp.Models
             IpInfo ipInfo = GetUserIP(context);
             if (!ipInfo.is_not_allowed)
             {
-                using (StreamWriter w = File.AppendText(logFile))
+                
+               using (StreamWriter w = File.AppendText(logFile))
                 {
                     await Task.Run(() => Log(log_text + " :ip = " + ipInfo.ip, w));
                 }

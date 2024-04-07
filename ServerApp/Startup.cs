@@ -87,19 +87,18 @@ namespace ServerApp
                     pattern: "{controller=Home}/{action=Index}/{id?}");
 
                 //very important when reloading the page different from home
-                endpoints.MapFallbackToController("Index", "Home");
+                // from HRR in production have to uncomment
+             //   endpoints.MapFallbackToController("Index", "Home");
             });
 
-            /*    app.UseSpa(spa =>
+              app.UseSpa(spa =>
                 {
                     // see https://go.microsoft.com/fwlink/?linkid=864501
 
                     //spa.Options.SourcePath = "../ClientApp";
                     spa.UseProxyToSpaDevelopmentServer("http://127.0.0.1:4200");
                     //spa.UseAngularCliServer("start");
-                });*/
-          
-
+                });
 
         }
     }

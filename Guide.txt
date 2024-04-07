@@ -102,6 +102,7 @@ startup.cs
                   "./wwwroot"))
             });=> in production
 
+      //в Production mode е закоментирано.В development трябва да се разкоментира !!! 31.03.2024d\	
       app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

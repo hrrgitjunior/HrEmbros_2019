@@ -28,6 +28,7 @@ import { ChoiceEmbColorModalComponent } from "./structure/choice.embcolor.modal"
 import { HistogramPlotComponent } from "./structure/histogramPlot";
 import { DesignsCategoryComponent } from "./structure/designsCategory";
 import { DesignsPaginationComponent } from "./structure/designsPagination";
+import { InteractiveImage3DModalComponent } from "./structure/interactiveImage3D.modal";
 
 @NgModule({
   declarations: [
@@ -51,9 +52,10 @@ import { DesignsPaginationComponent } from "./structure/designsPagination";
     ChoiceEmbColorModalComponent,
     AdobeDesignsComponent,
     ProductListComponent,
-    HistogramPlotComponent
+    HistogramPlotComponent,
+    InteractiveImage3DModalComponent
   ],
-  entryComponents: [ChoiceEmbColorModalComponent],
+  entryComponents: [ChoiceEmbColorModalComponent, InteractiveImage3DModalComponent],
   imports: [
     BrowserModule,
     ModelModule,
