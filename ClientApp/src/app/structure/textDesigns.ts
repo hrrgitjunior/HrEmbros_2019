@@ -1,4 +1,4 @@
-﻿import { Component } from '@angular/core';
+import { Component } from '@angular/core';
 import { NgModule } from "@angular/core";
 import { Repository } from "../models/repository";
 import { Product } from "../models/product";
@@ -15,16 +15,17 @@ export class TextDesignsComponent {
     message: string;
     constructor(private repo: Repository,
                 private router: Router,
-                private _route: ActivatedRoute) {
+                private activeRoute: ActivatedRoute) {
     }
 
     ngOnInit() {
-        this._route.params.subscribe(params => {
+      this.activeRoute.params.subscribe(params => {
             this.selectedCategory = params.category;
         });
     }
 
-    btnClick = function () {
-        this.router.navigate(['/designs', this.selectedCategory]);
+  btnClick = function () {
+    this.router.navigate(['/wrapper/designs', "Lettering"], { relativeTo: this.activeRoute });
     };
+
 }

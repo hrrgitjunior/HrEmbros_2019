@@ -8,6 +8,7 @@ import { CategoryProductsComponent } from "./structure/categoryProducts";
 import { DesignsCategoryComponent } from "./structure/designsCategory";
 import { ProductDetailComponent } from "./structure/productDetail";
 import { EmbroiderySimulatorComponent } from "./structure/embroiderySimulator";
+import { CategoryWrapperComponent } from "./structure/categoryWrapper";
 
 
 const routes: Routes = [
@@ -19,15 +20,32 @@ const routes: Routes = [
         path: '', component: StoreLayoutComponent,
         children: [
           { path: '', redirectTo: 'introduction', pathMatch: 'full' },
-          { path: "store/:category", component: CategoryProductsComponent },
           { path: "introduction", component: IntroductionComponent },
-          { path: "designs/:category", component: DesignsCategoryComponent },
-          { path: "designs/:category/:page", component: DesignsCategoryComponent },
-          { path: "detail/:id", component: ProductDetailComponent },
-          { path: "embroidery/:id", component: EmbroiderySimulatorComponent }
+          { path: "wrapper", component: CategoryWrapperComponent,
+            children: [
+          //  { path: '', redirectTo: "store", pathMatch: 'full' },
+          //  { path: "store", component: CategoryProductsComponent },
+            { path: "store/:category", component: CategoryProductsComponent },
+            { path: "designs/:category", component: DesignsCategoryComponent },
+            { path: "designs/:category/:page", component: DesignsCategoryComponent },
+            { path: "detail/:id", component: ProductDetailComponent },
+            { path: "embroidery/:id", component: EmbroiderySimulatorComponent }
+            ]
+          },
+     /*     { path: "designs/:category", component: DesignsCategoryComponent,
+            children: [
+              { path: "detail/:id", component: ProductDetailComponent},
+              ]
+          },*/
+        //  { path: "designs/:category/detail/:id", component: ProductDetailComponent },
+
+          //{ path: "detail/:id", component: ProductDetailComponent },
+       //   { path: "embroidery/:id", component: EmbroiderySimulatorComponent }
         ]
       },
-      { path: "contacts", component: ContactsComponent }
+      {
+        path: "contacts", component: ContactsComponent
+      }
     ]
   }
 

@@ -1,14 +1,17 @@
-﻿<div class="container" style="font-family:verdana">
+<div class="container" style="font-family:verdana">
     <div class="panel panel-info">
         <div class="panel-heading">
             <h4>Конвертирани Adobe Illustrator файлове във формат Tajima/dst</h4>
         </div>
 
         <div class="panel-body">
-            <p>
-                Предлагаме изготване на файлове за машинна бродерия след автоматично конвертиране на
-                Adobe Illustrator файлове от контури във Tajima (dst) формат.
-            </p>
+          <p>
+            Предлагаме изготване на файлове за машинна бродерия след автоматично конвертиране на
+            Adobe Illustrator файлове от контури във Tajima (dst) формат.
+            <a [routerLink]="['/wrapper/designs', selectedCategory]">
+             <span class="badge badge-info">Към галерия с готови проекти >>></span>
+            </a> 
+          </p>
 
             <div>
                 <h5>
@@ -25,9 +28,9 @@
                     <!-- <a [routerLink]="['/designs', selectedCategory]">
                             <span class="badge badge-info">Към галерия с готови проекти</span>
                          </a> -->
-                    <button type="button" class="btn btn-info" (click)="btnClick();">
+<!--                    <button type="button" class="btn btn-info" (click)="btnClick();">
                         Към галерия с готови проекти ->
-                    </button>
+                    </button> -->
                 </div>
 
                 <div class="row" style="margin-top: 20px">

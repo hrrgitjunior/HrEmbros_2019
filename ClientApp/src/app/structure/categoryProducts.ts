@@ -1,8 +1,9 @@
-﻿import { Component, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { NgModule } from "@angular/core";
 import { Repository } from "../models/repository";
 import { Product } from "../models/product";
 import { Router, ActivatedRoute } from "@angular/router";
+import { NavigationService } from "../models/navigation.service";
 
 @Component({
     selector: "category-products",
@@ -14,7 +15,8 @@ export class CategoryProductsComponent {
     selectedCategory: string;
     constructor(private repo: Repository,
         private router: Router,
-        private _route: ActivatedRoute) {
+      private _route: ActivatedRoute,
+      private navigServ: NavigationService) {
     }
 
     // It is a parrent component and wrap lettering, cross and photo.
@@ -24,6 +26,7 @@ export class CategoryProductsComponent {
         this._route.params.subscribe(params => {
             this.selectedCategory = params.category;
         });
+      
     }
 
 }

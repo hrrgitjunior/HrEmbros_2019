@@ -1,4 +1,4 @@
-﻿import { Component } from '@angular/core';
+import { Component } from '@angular/core';
 import { Repository } from "../models/repository";
 import { Product } from "../models/product";
 import { Router, ActivatedRoute } from "@angular/router";
@@ -15,10 +15,11 @@ export class ProductDetailComponent {
     constructor(private repo: Repository,
                 private router: Router,
                 private activeRoute: ActivatedRoute,
-                private location: Location) {
+      private location: Location) {
     }
 
-    ngOnInit() {
+  ngOnInit() {
+        console.log("==== Detail Init ======")
         let id = Number.parseInt(this.activeRoute.snapshot.params["id"]);
         if (id) {
             this.repo.getProduct(id);

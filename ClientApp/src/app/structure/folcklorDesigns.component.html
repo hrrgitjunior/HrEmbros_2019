@@ -1,14 +1,18 @@
-﻿<div class="container" style="font-family:verdana">
+<div class="container" style="font-family:verdana">
     <div class="panel panel-info">
         <div class="panel-heading">
             <h4>Мотиви с кръстат бод(cross stitch) във формат Tajima/dst </h4>
         </div>
 
         <div class="panel-body">
-            <p>
-                Предлагаме проектиране на файлове за машинна бродерия
-                на фолк шевици или други арт дизайни изпълнени с кръстат бод (cross stitch).
-            </p>
+          <p>
+            Предлагаме проектиране на файлове за машинна бродерия
+            на фолк шевици или други арт дизайни изпълнени с кръстат бод (cross stitch).
+            <a [routerLink]="['/wrapper/designs', selectedCategory]">
+              <span class="badge badge-info">Към галерия с готови проекти >>></span>
+            </a>
+
+          </p>
 
             <div>
                 <h5>
@@ -26,9 +30,9 @@
                         <span class="badge badge-info">Към галерия с готови проекти</span>
                     </a> -->
 
-                    <button type="button" class="btn btn-info"   (click)="btnClick();">
+<!--           <button type="button" class="btn btn-info"   (click)="btnClick();">
                         Към галерия с готови проекти ->
-                    </button>
+               </button>-->
                 </div>
 
                 <div class="row" style="margin-top: 20px">

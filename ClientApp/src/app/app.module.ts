@@ -29,6 +29,7 @@ import { HistogramPlotComponent } from "./structure/histogramPlot";
 import { DesignsCategoryComponent } from "./structure/designsCategory";
 import { DesignsPaginationComponent } from "./structure/designsPagination";
 import { InteractiveImage3DModalComponent } from "./structure/interactiveImage3D.modal";
+import { CategoryWrapperComponent } from "./structure/categoryWrapper";
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { InteractiveImage3DModalComponent } from "./structure/interactiveImage3D
     AdobeDesignsComponent,
     ProductListComponent,
     HistogramPlotComponent,
-    InteractiveImage3DModalComponent
+    InteractiveImage3DModalComponent,
+    CategoryWrapperComponent
   ],
   entryComponents: [ChoiceEmbColorModalComponent, InteractiveImage3DModalComponent],
   imports: [

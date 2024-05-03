@@ -34,4 +34,9 @@ export class ProductCellComponent {
           }, () => { });
   }
 
+  gotoDetail(Id: number) {
+    this.router.navigate(['/wrapper/detail', Id], { relativeTo: this.activeRoute});
+
+  }
+
   }

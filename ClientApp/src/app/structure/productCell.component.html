@@ -1,29 +1,37 @@
 <div>
-    <div class="container, text-center" style="margin-bottom: 50px;border:1px solid #bbddee">
-      <div style="margin: auto">
-        <div style="margin-bottom:10px">
-          <span class="badge badge-light">{{product.name}}</span>
-        </div>
-        <img [alt]="getAltImage(product.altImage)"
-                 src={{product.urlSmallImage}} />
+  <div class="container, text-center" style="margin-bottom: 50px;border:1px solid #bbddee">
+    <div style="margin: auto">
+      <div style="margin-bottom:10px">
+        <span class="badge badge-light">{{product.name}}</span>
+      </div>
+      <img [alt]="getAltImage(product.altImage)"
+           src={{product.urlSmallImage}} />
 
-        <div style="margin-top:10px;text-align:centre">
-          <div>
-              <a [routerLink]="['/detail', product.pId]">
-                {{product.enableDownload === true ? "Преглед/Сваляне" : "Преглед"}}
-              </a>
-          </div>
-          <div>
-              <a [routerLink]="['/embroidery', product.pId]">
-                  Симулатор на бодове
-              </a>
-          </div>
-          <div>
-              <a [routerLink]=""  ng-click="$event.stopPropagation();" (click) = "openInteractiveImage3D()">
-                 Интерактивен преглед
-               </a>
-          </div>
+      <div style="margin-top:10px;text-align:centre">
+        <div>
+          <a [routerLink]="['/wrapper/detail', product.pId]">
+      <!--    <a [routerLink]="" (click)="gotoDetail(product.pId)"> -->
+            {{product.enableDownload === true ? "Преглед/Сваляне" : "Преглед"}}
+          </a>
+        </div>
+        <div>
+          <a [routerLink]="['/wrapper/embroidery', product.pId]">
+            Симулатор на бодове
+          </a>
+        </div>
+        <div>
+          <a [routerLink]="" ng-click="$event.stopPropagation();" (click)="openInteractiveImage3D()">
+            Интерактивен преглед
+          </a>
+        </div>
       </div>
-      </div>
-     </div>
+    </div>
+  </div>
 </div>
+
+<div>
+  <router-outlet></router-outlet>
+</div>
+
+
+

@@ -112,5 +112,8 @@ startup.cs
                 endpoints.MapFallbackToController("Index", "Home");
             });
 
+
+Когато има CHILD ROUTE COMPONENT IN ROUTES се визуализира с помоща на директижата <ROUTER-OUTLET>
+ТРЯБВА ДА СЕ РАБЕРЕ КАК ДА СЕ ВИЗУАЛИЗИРА КАТО САМОСТОЯЛНА СТАНИЦА
           
 

@@ -212,7 +212,7 @@ namespace ServerApp.Controllers
             var FilteredProduct = (from des in context.Designs
                                    join dp in context.DesignPaths
                                    on des.PId equals dp.DesId
-                                   where des.PId == 4
+                                   where des.PId == id
                                    select new Product
                                    {
                                        PId = des.PId,

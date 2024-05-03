@@ -10,10 +10,7 @@
 
             <div *ngIf="isLoaded">
               <div class="row">
-                <div class="col-md-4">
-                  <img src={{product?.urlBigImage}} />
-                </div>
-                <div class="col-md-4">
+                <div class="col-md-8">
                   <img src={{product?.urlBigImage}} />
                 </div>
                 <div class="col-md-4">
@@ -63,7 +60,6 @@
               </div>
                 <div  style="margin-top: 10px">
                     <div *ngIf="product?.enableDownload" class="float-left"><button type="button" class="btn btn-success" (click)="download(product?.embFile)">Сваляне</button></div>
-                    <div class="float-right"><a class="float-right" href="javascript:void(0)" (click)="goBack()"> Готови проекти </a></div>
                 </div>
             </div>
          </div>
