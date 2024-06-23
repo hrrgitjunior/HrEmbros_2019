@@ -1,0 +1,40 @@
+<div>
+  <div class="container, text-center" style="margin-bottom: 50px;border:1px solid #bbddee">
+    <div style="margin: auto">
+      <div style="margin-bottom:10px">
+        <span class="badge badge-light">{{product.name}}</span>
+      </div>
+      <img [alt]="getAltImage(product.altImage)"
+           src={{product.urlSmallImage}} />
+      <div style="margin-top:10px;text-align:centre">
+        <div>
+          <a [routerLink]="['/category/detail', product.pId]">
+      <!--    <a [routerLink]="" (click)="gotoDetail(product.pId)"> -->
+            {{product.enableDownload === true ? "Преглед/Сваляне" : "Преглед"}}
+          </a>
+        </div>
+        <div>
+          <a [routerLink]="['/category/embroidery', product.pId]">
+            Симулатор на бодове
+          </a>
+        </div>
+        <div>
+          <!--  <a [routerLink]="" ng-click="$event.stopPropagation();" (click)="openInteractiveImage3D()">
+       Интерактивен преглед
+     </a>-->
+          <a *ngIf=product.isImage3D
+             [routerLink]="['/category/interactive3d/', product.pId]">
+            Интерактивен 3D изглед
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div>
+  <router-outlet></router-outlet>
+</div>
+
+
+

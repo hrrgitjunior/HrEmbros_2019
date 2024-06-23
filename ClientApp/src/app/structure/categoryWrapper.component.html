@@ -1,0 +1,17 @@
+<div>
+  <ol class="breadcrumb">
+    <!--    <li class="breadcrumb-item">
+    <a [routerLink]="['/wrapper/store', selectedCategory]"> Store </a>
+  </li> -->
+    <li class="breadcrumb-item" *ngFor="let item of this.navigServ.breadcrumbList">
+      <a [routerLink]="item.path">
+        {{ item.name }}
+      </a>
+    </li>
+  </ol>
+
+</div>
+
+<div>
+  <router-outlet></router-outlet>
+</div>
