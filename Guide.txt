@@ -1,0 +1,131 @@
+For Angular follow the book
+instal dotnet SDK
+instal nodejs
+instal angular
+instal VS
+instal sql server(turn of firewall) 
+instal sql studio management
+from vs connect with ms azure
+
+create new project
+two parts:
+Client
+Server
+
+npm start => proxy server at port 4200
+dotnet watch run at port 7000/7001
+uncheck ssl
+
+After run localhost at port 7000 open debug source console brawser/open dist/lib/bootstrap.css, copy and paste on 
+ClientApp/src/styles.css
+
+//=== for localhost sql server ===
+appsettings.json
+  "ConnectionStrings": {
+    "DefaultConnection": "Server = HRR-PC;Database = HRR_DB;Trusted_Connection=True"
+  }
+
+//=== for ms azure sql server ===
+"ConnectionStrings": {
+   "DefaultConnection": "Server=hrembros.database.windows.net;Initial Catalog=hrembros;User ID=hr67embros;Password=HrEmbros2209!;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"
+}
+
+tscopnfig.json
+"skipLibCheck": true => skip checking for type in datatable.type.ts
+
+when we have: async Task<IActionResult>
+  public async Task<IActionResult> Datatableproducts([FromForm] DataTableAjaxPostModel model)
+        {
+
+                    DataTableAjaxPostModel dtModel;
+
+                    using (var reader = new StreamReader(Request.Body))
+                                {
+                                    var body = await reader.ReadToEndAsync(); => using of assync methods
+                                    dtModel = JsonConvert.DeserializeObject<DataTableAjaxPostModel>(body);
+                                }
+
+
+
+MS AZURE SQL SERVER AUTHENTICATION
+hr67embros
+HrEmbros2209!
+HOME->HREMBROS SQLDB -> LEFT MENU -> QUERY EDITOR(preview)
+
+
+//=== for production ===-
+@section scripts {
+    <script src="runtime-es2015.js" type="module"></script>
+    <script src="polyfills-es2015.js" type="module"></script>
+    <script src="main-es2015.js" type="module"></script>
+    <!--  <script src="vendor.js" type="module"></script> -->
+    <!--  <script src="styles.js" type="module"></script> -->
+    <script src="runtime-es5.js" nomodule></script>
+    <script src="polyfills-es5.js" nomodule></script>
+    <script src="main-es5.js" nomodule></script>
+}
+
+
+//=== for localhost ===
+@section scripts {
+    <script src="runtime.js"></script>
+    <script src="polyfills.js"></script>
+    <script src="vendor.js"></script>
+    <script src="styles.js"></script>
+    <script src="main.js"></script>
+}
+
+Команда която създава файлове за продуктион
+ng build --prod --output-path ../ServerApp/ClientApp --output-hashing none
+Трябва да се добави папка Lib in wwwroot
+
+ServerApp->property->debug->aspnetcore_environment = Production/Development
+ServerApp/Properties/launchSettings.json => "ASPNETCORE_ENVIRONMENT": "Production"/"development"
+
+HOW SETTINGS PRODUCTION AND DEVELOPMENT MODE
+startup.cs
+
+                app.UseSpa(spa =>
+                {
+                    // see https://go.microsoft.com/fwlink/?linkid=864501
+
+                    //spa.Options.SourcePath = "../ClientApp";
+                    spa.UseProxyToSpaDevelopmentServer("http://127.0.0.1:4200");=> from npm start
+                    //spa.UseAngularCliServer("start");
+                });=> in development
+
+    app.UseStaticFiles(new StaticFileOptions
+            {
+                RequestPath = "",
+                FileProvider = new PhysicalFileProvider(
+                  Path.Combine(Directory.GetCurrentDirectory(),
+                  "./wwwroot"))
+            });=> in production
+
+      //в Production mode е закоментирано.В development трябва да се разкоментира !!! 31.03.2024d\	
+      app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
+		 //very important when reloading the page different from home
+                endpoints.MapFallbackToController("Index", "Home");
+            });
+
+
+Когато има CHILD ROUTE COMPONENT IN ROUTES се визуализира с помоща на директивата <ROUTER-OUTLET>
+ТРЯБВА ДА СЕ РАБЕРЕ КАК ДА СЕ ВИЗУАЛИЗИРА КАТО САМОСТОЯЛНА СТАНИЦА
+
+ИЗПОЛЗВАЙ SQL SERVER OBJECT EXPLORER ДА СЕ СВЪРЖЕШ С MS AZURE DB
+
+=========ТОВА Е ПРИ ПРОДУКТИОН=============
+
+embroideyrcontroller - пълният път на файла е \\CleitnApp\\filename
+filecontroller
+ПРИ DEVELOP MODE OR ANGUILAR PROXY SERVER МОЖЕ ДА Е \\wwwroot\...
+
+======================
+
+
+          
+
